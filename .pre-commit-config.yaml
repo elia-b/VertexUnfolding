@@ -36,4 +36,3 @@ repos:
         - --show-fixes
         - --line-length=80
     -   id: ruff-format
-

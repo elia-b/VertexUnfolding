@@ -65,7 +65,14 @@ Create a script in which you want to use the vertex unfolding and import `unfold
 ```python
 import vertex_unfolding
 
-vertex_unfolding.unfold(stl_file="my_stl.stl", output="my_vertex_unfolding.png")
+if __name__ == "__main__":
+    name = "my_stl"
+    vertex_unfolding.unfold(
+        stl_file=f"{name}.stl",
+        output=f"{name}_vertex_unfolding.png",
+        spanning_tree_output=f"{name}-spanning-tree.png",
+        facet_path_output=f"{name}-facet-path.png"
+    )
 ```
 
 Parameter:
