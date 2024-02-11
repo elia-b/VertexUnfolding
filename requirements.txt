@@ -1,0 +1,6 @@
+libigl
+networkx
+numpy
+drawsvg[raster]
+scipy
+matplotlib
