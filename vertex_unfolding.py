@@ -27,6 +27,8 @@ def unfold(
     )
     graph = _graph_from_mesh(faces)
     spanning_tree = nx.minimum_spanning_tree(graph)
+    _check_connected_components(spanning_tree=spanning_tree)
+
     level_array = _level_array(spanning_tree)
 
     if spanning_tree_output:
@@ -522,6 +524,11 @@ def _get_polygons_and_offsets(
         offsets.append([x_offset, y_offset])
 
     return polygons, offsets
+
+
+def _check_connected_components(spanning_tree: nx.Graph):
+    if len(list(nx.connected_components(spanning_tree))) > 1:
+        raise ValueError("Not all triangle are connected.")
 
 
 """
